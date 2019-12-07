@@ -38,9 +38,9 @@ var timeScale = muah.ScaleOf(muah.Scale{
 
 x := time.Duration(626663872206468)
 
-fmt.Println(timeScale.Format(x, time.Hour*24, true))
+fmt.Println(timeScale.Format(int64(x), time.Hour*24, true))
 // output: 2 months, 1 week, and 5.6 days
-fmt.Println(timeScale.Format(x, time.Hour*24, false))
+fmt.Println(timeScale.Format(int64(x), time.Hour*24, false))
 // output: 72.6 days
 ```
 
