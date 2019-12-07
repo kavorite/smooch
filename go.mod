@@ -1,3 +1,3 @@
-module github.com/kavorite/muah
+module github.com/kavorite/smooch
 
 go 1.13

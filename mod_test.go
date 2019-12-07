@@ -1,4 +1,4 @@
-package punit
+package smooch
 
 import (
 	"testing"

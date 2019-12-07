@@ -1,4 +1,4 @@
-package muah
+package smooch
 
 import (
 	"sort"

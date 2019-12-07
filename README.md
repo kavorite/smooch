@@ -1,5 +1,5 @@
-# punit
-A pretty-printing library for units in Go.
+# smooch
+A pretty-printing library for units in Go. 
 
 
 ```go
@@ -8,7 +8,7 @@ A pretty-printing library for units in Go.
 // me computer, me do thing
 // eventually: have scalar for human
 x := time.Duration(6276663872206468)
-fmt.Printf("%s\n")
+fmt.Println(x)
 ```
 
 There. A nice, fast, simple print with no exterrnal dependencies. Should be
@@ -20,7 +20,6 @@ approach generalizes to all kinds of units, not just units of time, so the
 following snippet demonstrates how to initialize the scale of units that I used
 to express human-readable timespans (in the interest of helping you express
 human-readable everything else).
-
 ```go
 // ...blah, blah, blah...
 // find another very ugly scalar
@@ -39,12 +38,12 @@ var timeScale = muah.ScaleOf(Scale{
 
 x := time.Duration(626663872206468)
 
-timeScale.Format(x, time.Hour*24, true)
+fmt.Println(timeScale.Format(x, time.Hour*24, true))
 // output: 2 months, 1 week, and 5.6 days
-timeScale.Format(x, time.Hour*24, false)
+fmt.Println(timeScale.Format(x, time.Hour*24, false))
 // output: 72.6 days
 ```
 
 **Muah.** Perfect. Flawless. Just as flawless as my code, and almost as
 flawless as my visage. Beautiful API, beautiful standard output. The only thing
-you won't like is your benchmarks.
+you won't love about this is your benchmarks.
