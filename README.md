@@ -11,7 +11,7 @@ x := time.Duration(6276663872206468)
 fmt.Println(x)
 ```
 
-There. A nice, fast, simple print with no exterrnal dependencies. Should be
+There. A nice, fast, simple print with no external dependencies. Should be
 easy, right? This is Go, after all. Oh, sweet summer child, do you know what
 this prints? I'll tell you what this prints. `1743h31m3.872206468s`.
 **Absolutely outrageous.** That looks like garbage. How am I supposed to read
@@ -26,7 +26,7 @@ human-readable everything else).
 // Rob Pike ain't got sh*t on _my_ human
 // this time will be different
 
-var timeScale = muah.ScaleOf(Scale{
+var timeScale = muah.ScaleOf(muah.Scale{
 	{int64(time.Hour*24*365), "year"},
 	{int64(time.Hour*24*30),  "month"},
 	{int64(time.Hour*24*7),   "week"},
