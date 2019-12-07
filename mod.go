@@ -1,4 +1,4 @@
-package punit
+package muah
 
 import (
 	"sort"
@@ -28,7 +28,7 @@ func ScaleOf(units ...Unit) Scale {
 	return Scale(units)
 }
 
-var TimeScale = Scale {
+var TimeScale = ScaleOf(Scale{
 	{int64(time.Hour*24*365), "year"},
 	{int64(time.Hour*24*30),  "month"},
 	{int64(time.Hour*24*7),   "week"},
@@ -36,13 +36,13 @@ var TimeScale = Scale {
 	{int64(time.Hour),        "hour"},
 	{int64(time.Minute),      "minute"},
 	{int64(time.Second),      "second"},
-}
+}...)
 
 func (scale Scale) Format(x, precision int64, concat bool) string {
 	// sort the units in descending order
 	scale = ScaleOf(scale...)
 	// skip units incomparable to the input until we hit the last on the scale
-	for len(scale) > 1 && x / scale[0].Size == 0 {
+	for len(scale) > 1 && scale[0].ComparableTo(x) {
 		scale = scale[1:]
 	}
 	if !concat {
@@ -51,7 +51,7 @@ func (scale Scale) Format(x, precision int64, concat bool) string {
 	}
 	var B strings.Builder
 	last := func(i int) bool {
-		return i == len(scale) - 1 || scale[i+1].Size / precision == 0
+		return i == len(scale) - 1 || !scale[i+1].ComparableTo(precision)
 	}
 	for i := range scale {
 		if i > 0 {
