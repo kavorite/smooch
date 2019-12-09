@@ -26,7 +26,7 @@ human-readable everything else).
 // Rob Pike ain't got sh*t on _my_ human
 // this time will be different
 
-var timeScale = muah.ScaleOf(smooch.Scale{
+var timeScale = smooch.ScaleOf(smooch.Scale{
 	{int64(time.Hour*24*365), "year"},
 	{int64(time.Hour*24*30),  "month"},
 	{int64(time.Hour*24*7),   "week"},
