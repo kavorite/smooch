@@ -55,9 +55,10 @@ func (scale Scale) Format(x, precision int64, concat bool) string {
 	}
 	for i := range scale {
 		if i > 0 {
-			B.WriteString(", ")
 			if last(i) {
-				B.WriteString("and ")
+				B.WriteString(" and ")
+			} else {
+				B.WriteString(", ")
 			}
 		}
 		remainder := x % scale[i].Size
